@@ -41,3 +41,21 @@
     transform: translateY(0px);
   }
 }
+
+.gf_light_blue_color {
+  color: #1890ff;
+}
+
+.gf_dark_blue_color {
+  color: #1d2538;
+}
+
+.gf_smoke_black_color {
+  color: #121212;
+}
+
+.gf_general_page {
+  min-height: 360px;
+  padding: 24px;
+  background-color: white;
+}

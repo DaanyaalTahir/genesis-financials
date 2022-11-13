@@ -15,7 +15,6 @@ import { onLogin } from "../../api";
 import React, { useState } from "react";
 import { login } from "../../state/Reducers/userReducer";
 import { LoginOutlined } from "@ant-design/icons";
-import GFLogo from "../GFLogo";
 
 import "./Login.scss";
 
@@ -58,7 +57,6 @@ const Login = () => {
       );
       setError(false);
       navigate("/");
-      console.log(res);
     } else {
       setError(true);
     }
@@ -76,7 +74,7 @@ const Login = () => {
       <Card style={{ width: 500 }}>
         <Col align="center">
           <div className="GF_Logo">
-            <GFLogo size={"large"} />
+            <img src="/logos/logo-dark.png" />
           </div>
           {error && <Text type="danger">Login Failed!</Text>}
         </Col>

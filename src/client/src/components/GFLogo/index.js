@@ -1,6 +1,6 @@
 import React from "react";
 import { Image } from "antd";
-function GFLogo({ size }) {
+function GFLogo({ size, mode }) {
   const logoSizes = {
     small: 37,
     medium: 50,
@@ -9,7 +9,7 @@ function GFLogo({ size }) {
   return (
     <Image
       height={logoSizes[size] || logoSizes.small}
-      src="/logos/icon-dark.png"
+      src={mode == "light" ? "/logos/icon-light.png" : "/logos/icon-dark.png"}
       preview={false}
     />
   );

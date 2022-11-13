@@ -2,10 +2,10 @@ import React from "react";
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
 import GlobalNav from "./components/GlobalNav";
-import Login from "./components/Login";
+import Login from "./pages/LoginPage";
 import ProtectedRoute from "./utils/ProtectedRoute";
-import Register from "./components/Login/Register";
-import { routes } from "./utils/AllRoutes";
+import Register from "./pages/LoginPage/Register";
+import { routes } from "./AllRoutes";
 
 function App() {
   return (

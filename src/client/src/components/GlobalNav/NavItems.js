@@ -14,7 +14,7 @@ function getItem(label, key, icon, children) {
 }
 
 export const navItems = [
-  getItem("Dashboard", "dashboard", <DashboardOutlined />),
-  getItem("Send Money", "send_money", <SendOutlined />),
-  getItem("Statements", "statements", <FileOutlined />),
+  getItem("Dashboard", "/", <DashboardOutlined />),
+  getItem("Send Money", "/send_money", <SendOutlined />),
+  getItem("Statements", "/statement", <FileOutlined />),
 ];

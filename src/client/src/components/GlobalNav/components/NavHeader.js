@@ -1,6 +1,10 @@
 import React from "react";
 import { Layout, Typography, Menu, Avatar } from "antd";
-import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
+import {
+  LogoutOutlined,
+  UserOutlined,
+  QuestionCircleOutlined,
+} from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../../state/Reducers/userReducer";
 
@@ -26,10 +30,10 @@ function NavHeader() {
         },
       ],
     },
+    { key: "help", label: <QuestionCircleOutlined /> },
   ];
 
   const onClick = (e) => {
-    console.log(e.key);
     if (e.key === "logout") {
       dispatch(logout());
     }
@@ -42,10 +46,26 @@ function NavHeader() {
         padding: 0,
       }}
     >
-      <Title level={3} className="NavHeader_Title">
-        Genesis Financials
+      <Title
+        level={3}
+        className="NavHeader_Title"
+        style={{
+          fontWeight: 700,
+          width: "100%",
+        }}
+      >
+        <span className="gf_light_blue_color">Genesis</span>
+        <span className="gf_dark_blue_color"> Financials</span>
       </Title>
-      <Menu onClick={onClick} mode="horizontal" items={items} />
+      <Menu
+        onClick={onClick}
+        mode="horizontal"
+        items={items}
+        style={{
+          width: "100%",
+          justifyContent: "end",
+        }}
+      />
     </Header>
   );
 }
