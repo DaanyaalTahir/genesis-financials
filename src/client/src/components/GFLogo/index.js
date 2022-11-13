@@ -9,7 +9,7 @@ function GFLogo({ size }) {
   return (
     <Image
       height={logoSizes[size] || logoSizes.small}
-      src="/logos/gf_logo.png"
+      src="/logos/icon-dark.png"
       preview={false}
     />
   );
