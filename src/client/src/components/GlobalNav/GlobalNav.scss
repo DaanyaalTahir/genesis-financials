@@ -1,0 +1,31 @@
+.GlobalNav_Cont {
+  .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 32px;
+    margin: 16px;
+    justify-content: center;
+
+    .title {
+      color: white;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+  }
+
+  .NavHeader_Cont {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .NavHeader_Title {
+      margin-left: 20px;
+    }
+  }
+
+  .site-layout .site-layout-background {
+    background: #fff;
+  }
+}
