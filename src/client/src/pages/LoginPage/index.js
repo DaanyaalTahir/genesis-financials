@@ -14,6 +14,7 @@ import {
 import { onLogin } from "../../api";
 import React, { useState } from "react";
 import { login } from "../../state/Reducers/userReducer";
+import { setUserAccounts } from "../../state/Reducers/accountReducer";
 import { LoginOutlined } from "@ant-design/icons";
 
 import "./Login.scss";
@@ -30,31 +31,10 @@ const Login = () => {
 
   const onSubmit = async (values) => {
     let res = await onLogin(values);
+    console.log(res);
     if (res) {
-      let {
-        AddressID,
-        BirthDate,
-        CreationDate,
-        Email,
-        FName,
-        HomeBranch,
-        LName,
-        SIN,
-        Username,
-      } = res.data;
-      dispatch(
-        login({
-          AddressID,
-          BirthDate,
-          CreationDate,
-          Email,
-          FName,
-          HomeBranch,
-          LName,
-          SIN,
-          Username,
-        })
-      );
+      dispatch(login({ ...res.data.user }));
+      dispatch(setUserAccounts({ userAccounts: res.data.accounts }));
       setError(false);
       navigate("/");
     } else {
