@@ -1,8 +1,9 @@
 
 import React, { useState, useEffect } from "react";
 import { Button, Form, Input, Select, Space, Tooltip, Typography } from "antd";
-import AccountSelect from "src/client/src/pages/SendMoneyPage/accountSelect.js";
-import UsernameSelect from "src/client/src/pages/SendMoneyPage/usernameSelect.js";
+import AccountSelect from "../SendMoneyPage/accountSelect";
+import UsernameSelect from "../SendMoneyPage/usernameSelect";
+import NameSelect from "../SendMoneyPage/nameSelect";
 
 
 const SendMoneyPage = () => {
@@ -20,6 +21,12 @@ const SendMoneyPage = () => {
     console.log(selectedUser);
   }, [selectedUser]);
 
+  const [selectedName, setSelectedName] = useState(undefined);
+
+  useEffect(() => {
+    console.log(selectedName);
+  }, [selectedName]);
+
 
   return (
     <div>
@@ -35,7 +42,7 @@ const SendMoneyPage = () => {
       <br></br>
       <br></br>
       <h1>Your Details</h1>
-      <div> Name: </div>
+      <label>Name:<NameSelect setSelectedName={setSelectedName} /></label> 
       <br></br>
       <label>Username:<UsernameSelect setSelectedUser={setSelectedUser} /></label> 
       <br></br>
