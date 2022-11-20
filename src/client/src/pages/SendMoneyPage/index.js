@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from "react";
 import { Button, Form, Input, Select, Space, Tooltip, Typography } from "antd";
-import AccountSelect from "./accountSelect";
-import UsernameSelect from "./Data Fetching";
-// import AccountSelect from "../../components/AccountSelect";
+import AccountSelect from "src/client/src/pages/SendMoneyPage/accountSelect.js";
+import UsernameSelect from "src/client/src/pages/SendMoneyPage/usernameSelect.js";
+
 
 const SendMoneyPage = () => {
 
@@ -20,13 +20,10 @@ const SendMoneyPage = () => {
     console.log(selectedUser);
   }, [selectedUser]);
 
-      
-
-function SendMoneyPage()  {
 
   return (
     <div>
-   
+      
 
     <Form>
       <h1>Send Money to</h1>
@@ -40,7 +37,6 @@ function SendMoneyPage()  {
       <h1>Your Details</h1>
       <div> Name: </div>
       <br></br>
-
       <label>Username:<UsernameSelect setSelectedUser={setSelectedUser} /></label> 
       <br></br>
       <div> Email: </div>
@@ -78,6 +74,5 @@ function SendMoneyPage()  {
     </div>
   )
   }
-}
-export default SendMoneyPage;
 
+export default SendMoneyPage;
