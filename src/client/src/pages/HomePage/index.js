@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Card } from "antd";
 import AccountSelect from "../../components/AccountSelect";
+import BalanceCard from "./components/BalanceCard";
+import RecentTransactionCard from "./components/RecentTransactionCard";
+import MonthlySpending from "./components/MonthlySpending";
+import SpendingInsightsCard from "./components/SpendingInsightsCard";
+
+import "./Homepage.scss";
 
 const HomePage = () => {
   const [selectedAccount, setSelectedAccount] = useState(undefined);
@@ -10,7 +16,7 @@ const HomePage = () => {
   }, [selectedAccount]);
 
   return (
-    <>
+    <div className="Homepage_Cont">
       <AccountSelect setSelectedAccount={setSelectedAccount} />
 
       {selectedAccount && (
@@ -18,38 +24,22 @@ const HomePage = () => {
           <Col>
             <Row gutter={[16, 16]}>
               <Col span={8}>
-                <Card title="Balance" bordered={false}>
-                  <p>Card content</p>
-                  <p>Card content</p>
-                  <p>Card content</p>
-                </Card>
+                <BalanceCard selectedAccount={selectedAccount} />
               </Col>
               <Col span={8}>
-                <Card title="Recent Transaction" bordered={false}>
-                  <p>Card content</p>
-                  <p>Card content</p>
-                  <p>Card content</p>
-                </Card>
+                <RecentTransactionCard selectedAccount={selectedAccount} />
               </Col>
               <Col span={8}>
-                <Card title="Spending" bordered={false}>
-                  <p>Card content</p>
-                  <p>Card content</p>
-                  <p>Card content</p>
-                </Card>
+                <MonthlySpending selectedAccount={selectedAccount} />
               </Col>
               <Col span={24}>
-                <Card title="Spending Insights" bordered={false}>
-                  <p>Card content</p>
-                  <p>Card content</p>
-                  <p>Card content</p>
-                </Card>
+                <SpendingInsightsCard selectedAccount={selectedAccount} />
               </Col>
             </Row>
           </Col>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

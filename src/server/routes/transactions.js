@@ -18,7 +18,7 @@ WHERE T.TransactionTime = (SElECT MAX(TransactionTime) FROM transaction T1 WHERE
       if (result.length != 0) {
         res.json(result);
       } else {
-        res.status(401).send({ message: "User doesn't exist!" });
+        res.status(401).send({ message: "Failed" });
       }
     }
   );
@@ -27,13 +27,13 @@ WHERE T.TransactionTime = (SElECT MAX(TransactionTime) FROM transaction T1 WHERE
 router.post("/cur_month_category_spending", (req, res) => {
   const today = new Date();
   const cardNo = req.body.cardNo;
-
+  // the date has been hard coded for the demo
   db.query(
     `SELECT Category, SUM(Amount) AS TotalAmount
 FROM transaction T
 WHERE MONTH(TransactionTime)=? AND YEAR(TransactionTime)=? AND CardNo=?
 GROUP BY Category`,
-    [today.getMonth() + 1, today.getFullYear(), cardNo],
+    [11, 2022, cardNo],
     (err, result) => {
       if (err) {
         res.send({ err: err });
@@ -42,7 +42,30 @@ GROUP BY Category`,
       if (result.length != 0) {
         res.json(result);
       } else {
-        res.status(401).send({ message: "User doesn't exist!" });
+        res.status(401).send({ message: "Failed" });
+      }
+    }
+  );
+});
+
+router.post("/spending_past_twelve_months", (req, res) => {
+  const cardNo = req.body.cardNo;
+  db.query(
+    `SELECT MONTH(TransactionTime) AS Month, YEAR(TransactionTime) AS Year, SUM(Amount) AS Amount
+FROM transaction
+WHERE TransactionTime> now() - INTERVAL 12 MONTH AND CardNo=?
+GROUP BY MONTH(TransactionTime), YEAR(TransactionTime)
+ORDER BY YEAR(TransactionTime), MONTH(TransactionTime)`,
+    [cardNo],
+    (err, result) => {
+      if (err) {
+        res.send({ err: err });
+      }
+
+      if (result.length != 0) {
+        res.json(result);
+      } else {
+        res.status(401).send({ message: "Failed" });
       }
     }
   );

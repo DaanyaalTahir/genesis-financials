@@ -13,9 +13,9 @@ router.post("/login", (req, res) => {
     (err, result) => {
       if (err) {
         res.send({ err: err });
+        console.log(err);
       }
       // TODO: Add proper password decode and compare here
-      console.log(result[0].PasswordHash);
       console.log(password);
 
       if (result.length == 1 && result[0].PasswordHash == password) {

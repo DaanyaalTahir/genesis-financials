@@ -1,0 +1,20 @@
+.Homepage_Cont {
+  th {
+    &.ant-descriptions-item {
+      padding: 0;
+    }
+  }
+
+  .row1 {
+    height: 230px;
+    position: relative;
+    .center_canvas {
+      display: flex;
+      justify-content: center;
+
+      canvas {
+        height: 120px !important;
+      }
+    }
+  }
+}
