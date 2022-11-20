@@ -6,37 +6,18 @@ import { useSelector } from "react-redux";
 
 function NameSelect({ setSelectedName }) {
 
-  const [parsedNames, setParsedNames] = useState(null);
   const user = useSelector((state) => state.user.FName);
+  const last = useSelector((state) => state.user.LName);
 
-  useEffect(() => {
-    setParsedNames(
-        Object.keys(user).map((names) => {
-        return { key: names.FName, label: `${user}` };
 
-      })
-    );
-    setSelectedName(user[0].FName);
-  }, [setSelectedName, setParsedNames, user]);
 
-  const handleChange = (value) => {
-    setSelectedName(value);
-  };
 
   return (
     <div>
-      {parsedNames && (
-        <div>
-          
-           <div defaultValue={parsedNames[0].key} onChange={handleChange}>
-            {parsedNames.map((user) => {
-              return <div value={user.key}>{user.label}</div>;
-            })}
-          </div>
-        </div>
+    
+           <div value={user}><b>Name:</b>{user} {last}</div>
+           </div> 
+        
       )}
-    </div>
-  );
-}
 
 export default NameSelect;

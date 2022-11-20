@@ -5,6 +5,7 @@ import InsightsPage from "./pages/InsightsPage";
 import LoansPage from "./pages/LoansPage"
 import ContactPage from "./pages/ContactPage"
 
+
 export const routes = [
   { component: <HomePage />, path: "/" },
   { component: <SendMoneyPage />, path: "/send_money" },
