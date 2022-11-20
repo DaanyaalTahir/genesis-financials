@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 
 import React, { useState, useEffect } from "react";
 import { Button, Form, Input, Select, Space, Tooltip, Typography } from "antd";
@@ -21,22 +20,13 @@ const SendMoneyPage = () => {
     console.log(selectedUser);
   }, [selectedUser]);
 
-
-  return (
-    <div>
       
-      
-=======
-import React from "react";
-import { Button, Form, Input, Select, Space, Tooltip, Typography } from "antd";
-import DataFetching from "../../api/Data Fetching";
 
 function SendMoneyPage()  {
 
   return (
     <div>
    
->>>>>>> Stashed changes
 
     <Form>
       <h1>Send Money to</h1>
@@ -50,26 +40,16 @@ function SendMoneyPage()  {
       <h1>Your Details</h1>
       <div> Name: </div>
       <br></br>
-<<<<<<< Updated upstream
+
       <label>Username:<UsernameSelect setSelectedUser={setSelectedUser} /></label> 
       <br></br>
       <div> Email: </div>
-=======
-      <div> Username:</div>
-      <br></br>
-      <div> Email:</div>
->>>>>>> Stashed changes
       <br></br>
       <br></br>
       <br></br>
       <h1>Transfer Details</h1>
       <br></br>
-<<<<<<< Updated upstream
       <label><AccountSelect setSelectedAccount={setSelectedAccount} />
-=======
-      <label>Withdraw From:
-        <Select name= "account"></Select>
->>>>>>> Stashed changes
       </label>
       <br></br>
       <br></br>
@@ -98,6 +78,6 @@ function SendMoneyPage()  {
     </div>
   )
   }
-
+}
 export default SendMoneyPage;
 
