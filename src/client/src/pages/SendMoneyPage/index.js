@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from "react";
 import { Button, Form, Input, Select, Space, Tooltip, Typography } from "antd";
-import AccountSelect from "../../api/accountSelect";
-import UsernameSelect from "../../api/Data Fetching";
-// import AccountSelect from "../../components/AccountSelect";
+import AccountSelect from "src/client/src/pages/SendMoneyPage/accountSelect.js";
+import UsernameSelect from "src/client/src/pages/SendMoneyPage/usernameSelect.js";
+
 
 const SendMoneyPage = () => {
 
@@ -23,7 +23,6 @@ const SendMoneyPage = () => {
 
   return (
     <div>
-      
       
 
     <Form>
@@ -77,4 +76,3 @@ const SendMoneyPage = () => {
   }
 
 export default SendMoneyPage;
-

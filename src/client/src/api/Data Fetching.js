@@ -1,81 +1,69 @@
-import React, { useEffect, useState } from "react";
-import { Input } from "antd";
-import { useSelector } from "react-redux";
 
-// const { Option } = Select;
 
-function UsernameSelect({ setSelectedUser }) {
 
-  const [parsedUsers, setParsedUsers] = useState(null);
-  const user = useSelector((state) => state.user.Username);
+// function DataFetching(){
 
-  useEffect(() => {
-    setParsedUsers(
-        Object.keys(user).map((users) => {
-        return { key: users.Username, label: `${user}` };
-
-      })
-    );
-    setSelectedUser(user[0].Username);
-  }, [setSelectedUser, setParsedUsers, user]);
-
-  const handleChange = (value) => {
-    setSelectedUser(value);
-  };
-
-  return (
-    <div>
-      {parsedUsers && (
-        <div>
-          
-           <div defaultValue={parsedUsers[0].key} onChange={handleChange}>
-            {parsedUsers.map((user) => {
-              return <div value={user.key}>{user.label}</div>;
-            })}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-
-export default UsernameSelect;
+//     const [posts, setPosts] = useState([])
+//     useEffect(() => {
   
-
-
-
-  
-//   const [parsedUser, setParsedUser] = useState(null);
-//   const user = useSelector((state) => state.user.Username);
-
-//   useEffect(() => {
-//     setParsedUser(
-//       user.map((users) => {
-//         return { key: users.Username, label: users.Username };
+//       axios.get('src/client/src/api/index.js')
+//       .then(res => {
+//         console.log(res)
+//         setPosts(res.data)
 //       })
-//     );
-//     setUser(user[0].Username);
-//   }, [setUser, setParsedUser, user]);
-
-//   const handleChange = (value) => {
-//     setUser(value);
-//   };
-
+//       .catch(err => {
+//         console.log(err)
+//       })
+  
+//     })
 //   return (
-//     <div>
-//       {parsedUser && (
-//         <div >
-        
-//           <Input  defaultValue={parsedUser[0].key} onChange={handleChange}>
-//             {parsedUser.map((users) => {
-//               return <Input value={users.key}>{users.label}</Input>;
-//             })}
-//           </Input>
-//         </div>
-//       )}
-//     </div>
-//   );
+//   <div>
+//   <ul>
+//     {posts.map (post => (
+//       <li key= {post.id} > {post.FName} </li>
+//     ))}
+//   </ul>
+// </div>
+
+// )
 // }
 
-// export default UsernameSelect;
+// export default DataFetching
 
+// import Axios from "axios";
+
+// export const onLogin = async (values) => {
+//   const body = { ...values };
+//   try {
+//     const response = await Axios.post(
+//       "http://localhost:9000/users/login/",
+//       body
+//     );
+//     console.log(response);
+//     return response;
+//   } catch (err) {
+//     return false;
+//   }
+// };
+
+
+// export default onLogin;
+
+import React, {useState, useEffect} from "react";
+import Axios from "axios";
+
+export const DataFetching = async (values) => {
+  const body = { ...values };
+  try {
+    const response = await Axios.post(
+      "http://localhost:9000/users/login/",
+      body
+    );
+    console.log(response);
+    return response;
+  } catch (err) {
+    return false;
+  }
+};
+
+export default DataFetching
