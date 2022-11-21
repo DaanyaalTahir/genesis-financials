@@ -41,7 +41,7 @@ const SendMoneyPage = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    alert('You have submitted the amount of  $' + amount +' to '+ email)
+    alert('You have sent the amount of  $' + amount +' to '+ email)
     setEmail('');
     setAmount('');
     setSecurity('');
