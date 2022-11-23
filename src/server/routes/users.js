@@ -47,4 +47,32 @@ router.post("/login", (req, res) => {
   );
 });
 
+
+router.post("/etransfer", (req, res) => {
+  const cardNo = req.body.cardNo;
+  const amount = req.body.amount;
+
+  db.query(
+    `UPDATE account A
+    SET A.Amount = A.Amount-?
+    WHERE A.AccountNo = (
+                        SELECT C.AccountNo
+                            FROM card C
+                            WHERE C.CardNo = ?
+        );`,
+    [amount, cardNo],
+    (err, result) => {
+      if (err) {
+        res.send({ err: err });
+      }
+
+      if (result.length != 0) {
+        res.json({ message: "Success" });
+      } else {
+        res.status(401).send({ message: "Failed" });
+      }
+    }
+  );
+});
+
 module.exports = router;

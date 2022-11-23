@@ -5,6 +5,8 @@ import AccountSelect from "../SendMoneyPage/accountSelect";
 import UsernameSelect from "../SendMoneyPage/usernameSelect";
 import NameSelect from "../SendMoneyPage/nameSelect";
 import EmailSelect from "../SendMoneyPage/emailSelect";
+import { etransfer } from "../../api";
+import "./sendMoney.scss";
 
 const SendMoneyPage = () => {
 
@@ -39,26 +41,35 @@ const SendMoneyPage = () => {
   const [answer, setAnswer] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
     alert('You have sent the amount of  $' + amount +' to '+ email)
-    setEmail('');
-    setAmount('');
-    setSecurity('');
-    setAnswer('');
-    setMessage('');
+
+    let response = await etransfer({cardNo: selectedAccount, amount: amount})
+    console.log(response)
+    if(response.data.message == "Success"){
+      console.log("")
+      
+      setEmail('');
+      setAmount('');
+      setSecurity('');
+      setAnswer('');
+      setMessage('');
+    }
+
+
   }
 
   return (
-    <div>
+    <div class="form-center">
       
 
     <form onSubmit={handleSubmit}>
       <fieldset>
       <h1>Send Money to</h1>
-      <p><b>Pay the friend back, pay the babysitter or pay the landlord </b></p>
+      <p><b>Pay the friend back</b></p>
       <label>Email:
-        <Input required name= {"email"} type="email" id="email"
+        <Input required name= {"email"} type="email" id="email" placeholder="hello@gmail.com"
         onChange={event => setEmail(event.target.value)}
         value={email}
         />
@@ -69,9 +80,7 @@ const SendMoneyPage = () => {
       <h1>Your Details</h1>
       <br></br>
       <label><NameSelect setSelectedName={setSelectedName} /></label> 
-      <br></br>
       <label><UsernameSelect setSelectedUser={setSelectedUser} /></label> 
-      <br></br>
       <label><EmailSelect setSelectedEmail={setSelectedEmail} /></label> 
       <br></br>
       <br></br>
@@ -82,21 +91,21 @@ const SendMoneyPage = () => {
       <br></br>
       <br></br>
       <label>Amount:
-        <Input required name= "amount" type="number" min="0.01" step="0.01" id="account" 
+        <Input required name= "amount" type="number" min="0.01" step="0.01" id="account" placeholder="$3423.00"
         onChange={event => setAmount(event.target.value)}
         value={amount}/>
       </label>
       <br></br>
       <br></br>
       <label>Security Question:
-        <Input required type="text" 
+        <Input required type="text" placeholder="Question" 
         onChange={event => setSecurity(event.target.value)}
         value={security}/>
       </label>
       <br></br>
       <br></br>
       <label>Answer:
-        <Input required type="text" 
+        <Input required type="text"  placeholder="Answer" 
         onChange={event => setAnswer(event.target.value)}
         value={answer}/>
       </label>
@@ -108,7 +117,7 @@ const SendMoneyPage = () => {
         value={message}/>
       </label>
       </fieldset>
-      <button type="submit">Continue</button>        
+      <Button type="submit"  htmlType="submit">Continue</Button>        
             
     </form>
     </div>

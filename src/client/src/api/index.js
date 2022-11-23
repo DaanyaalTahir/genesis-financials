@@ -27,3 +27,18 @@ export const onRegister = async (values) => {
     return false;
   }
 };
+
+export const etransfer = async (values) => {
+  const body = { ...values };
+  try {
+    const response = await Axios.post(
+      "http://localhost:9000/users/etransfer/",
+      body
+    );
+    console.log(response);
+    return response;
+  } catch (err) {
+    return false;
+  }
+};
+

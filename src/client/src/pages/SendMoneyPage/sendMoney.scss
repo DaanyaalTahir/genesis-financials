@@ -1,0 +1,14 @@
+Form {
+    max-width: 75%;
+    
+  }
+
+  .form-center {
+    display:flex;
+    justify-content: center;
+        th {
+          &.ant-descriptions-item {
+            padding: 0;
+          }
+        }
+  }
