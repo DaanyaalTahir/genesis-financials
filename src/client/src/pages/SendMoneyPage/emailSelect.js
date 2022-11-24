@@ -6,15 +6,16 @@ import { useSelector } from "react-redux";
 
 function EmailSelect({ setSelectedEmail }) {
 
-    const user = useSelector((state) => state.user.Email);
+  const user = useSelector((state) => state.user.Email);
 
 
-    return (
-      <div>
-      
-             <div value={user}><b>Email:</b>{user}</div>
-             </div> 
-          
-        )}
+  return (
+    <div>
+
+      <div value={user}><b>Email: </b>{user}</div>
+    </div>
+
+  )
+}
 
 export default EmailSelect;

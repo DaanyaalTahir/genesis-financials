@@ -14,10 +14,11 @@ function NameSelect({ setSelectedName }) {
 
   return (
     <div>
-    
-           <div value={user}><b>Name:</b>{user} {last}</div>
-           </div> 
-        
-      )}
+
+      <div value={user}><b>Name: </b>{user} {last}</div>
+    </div>
+
+  )
+}
 
 export default NameSelect;
