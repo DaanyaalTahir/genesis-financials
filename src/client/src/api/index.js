@@ -42,3 +42,17 @@ export const etransfer = async (values) => {
   }
 };
 
+export const contact = async (values) => {
+  const body = { ...values };
+  try {
+    const response = await Axios.post(
+      "http://localhost:9000/users/contact/",
+      body
+    );
+    console.log(response);
+    return response;
+  } catch (err) {
+    return false;
+  }
+};
+

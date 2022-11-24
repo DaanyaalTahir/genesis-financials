@@ -75,4 +75,30 @@ router.post("/etransfer", (req, res) => {
   );
 });
 
+router.post("/contact", (req, res) => {
+  const AddressID = req.body.AddressID;
+
+  db.query(
+    `SELECT A.Street, A.City, A.Province, A.Country, A.PostalCode, B.ManagerName
+    FROM address A, branch B
+WHERE B.BranchNo= (
+                    SELECT C.HomeBranch
+                        FROM customer C
+                        WHERE C.AddressID=A.?)`,
+[AddressID],
+    (err, result) => {
+      if (err) {
+        res.send({ err: err });
+      }
+
+      if (result.length != 0) {
+        res.json({ message: "Success" });
+      } else {
+        res.status(401).send({ message: "Failed" });
+      }
+    }
+  );
+});
+
+
 module.exports = router;

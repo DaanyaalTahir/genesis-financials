@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { Button, Form, Input, Select, Space, Tooltip, Typography } from "antd";
+import { Button, Form, Input, Select, Space, Tooltip, Typography, Card } from "antd";
 import AccountSelect from "../SendMoneyPage/accountSelect";
 import UsernameSelect from "../SendMoneyPage/usernameSelect";
 import NameSelect from "../SendMoneyPage/nameSelect";
@@ -62,12 +62,11 @@ const SendMoneyPage = () => {
 
   return (
     <div class="form-center">
-      
+        
 
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}> <Card class="form-class" style={{ width:600 }}>
       <fieldset>
       <h1>Send Money to</h1>
-      <p><b>Pay the friend back</b></p>
       <label>Email:
         <Input required name= {"email"} type="email" id="email" placeholder="hello@gmail.com"
         onChange={event => setEmail(event.target.value)}
@@ -117,8 +116,9 @@ const SendMoneyPage = () => {
         value={message}/>
       </label>
       </fieldset>
+      <br></br>
       <Button type="submit"  htmlType="submit">Continue</Button>        
-            
+      </Card>    
     </form>
     </div>
   )
