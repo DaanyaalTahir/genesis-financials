@@ -70,11 +70,16 @@ function StatementTable({ selectedAccount }) {
             key: 'Date',
             sorter: (a, b) => new Date(a.Date) - new Date(b.Date),
             sortOrder: sortedInfo.columnKey === 'Date' ? sortedInfo.order : null,
+            filteredValue: filteredInfo.Date || null,
             filters: [
                 {
                     text: '2020',
                     value: '2020',
                     children: [
+                        {
+                            text: 'All',
+                            value: '2020',
+                        },
                         {
                             text: 'January',
                             value: '2020-01',
@@ -90,6 +95,10 @@ function StatementTable({ selectedAccount }) {
                     value: '2021',
                     children: [
                         {
+                            text: 'All',
+                            value: '2021',
+                        },
+                        {
                             text: 'January',
                             value: '2021-01',
                         },
@@ -103,6 +112,10 @@ function StatementTable({ selectedAccount }) {
                     text: '2022',
                     value: '2022',
                     children: [
+                        {
+                            text: 'All',
+                            value: '2022',
+                        },
                         {
                             text: 'January',
                             value: '2022-01',
@@ -156,7 +169,7 @@ function StatementTable({ selectedAccount }) {
                 <Button onClick={setAmountSort}>Sort Amount</Button>
                 <Button onClick={setDateSort}>Sort Date</Button>
                 {/*<Button onClick={clearFilters}>Clear filters</Button>*/}
-                <Button onClick={clearAll}>Clear Filters</Button>
+                <Button onClick={clearAll}>Clear Filters and Sorters</Button>
             </Space>
             <Table columns={columns} dataSource={data} onChange={handleChange} />
         </>
