@@ -47,7 +47,6 @@ router.post("/login", (req, res) => {
   );
 });
 
-
 router.post("/etransfer", (req, res) => {
   const cardNo = req.body.cardNo;
   const amount = req.body.amount;
@@ -75,6 +74,28 @@ router.post("/etransfer", (req, res) => {
   );
 });
 
+router.post("/account_balance", (req, res) => {
+  const cardNo = req.body.cardNo;
+
+  db.query(
+    `SELECT A.Amount, A.Type, C.ExpiryDate, A.AccountNo
+FROM card C, account A
+WHERE C.AccountNo=A.AccountNo AND C.CardNo=?`,
+    [cardNo],
+    (err, result) => {
+      if (err) {
+        res.send({ err: err });
+      }
+
+      if (result.length != 0) {
+        res.json(result);
+      } else {
+        res.status(401).send({ message: "Failed" });
+      }
+    }
+  );
+});
+
 router.post("/contact", (req, res) => {
   const AddressID = req.body.AddressID;
 
@@ -85,7 +106,7 @@ WHERE B.BranchNo= (
                     SELECT C.HomeBranch
                         FROM customer C
                         WHERE C.AddressID=A.?)`,
-[AddressID],
+    [AddressID],
     (err, result) => {
       if (err) {
         res.send({ err: err });
@@ -99,6 +120,5 @@ WHERE B.BranchNo= (
     }
   );
 });
-
 
 module.exports = router;

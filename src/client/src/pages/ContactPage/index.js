@@ -1,30 +1,45 @@
 import React, { useState, useEffect } from "react";
-import AddressSelect from '../ContactPage/addressSelect';
-import { contact } from "../../api";
+import { Badge, Descriptions } from "antd";
+import { getContactInfo } from "../../api/contact";
+import { useSelector } from "react-redux";
 
 const ContactPage = () => {
+  const [contactInfo, setContactInfo] = useState(undefined);
+  const branchNo = useSelector((state) => state.user.HomeBranch);
 
-  const [selectedAddress, setSelectedAddress] = useState(undefined);
   useEffect(() => {
-    console.log(selectedAddress);
-  }, [selectedAddress]);
-  const handleSubmit = async event => {
-
-  
-
-   
-
-    let response = await contact
-    ({AddressID: selectedAddress})
-    console.log(response)
-    if(response.data.message == "Success"){
-      console.log("")
+    async function getData() {
+      let res = await getContactInfo({ branchNo });
+      setContactInfo(res.data[0]);
     }
-  }
+    getData();
+  }, []);
 
   return (
-    <div> <h1> <AddressSelect setSelectedAddress={handleSubmit}> </AddressSelect> </h1> </div>
-  )
-}
+    <div className="gf_general_page">
+      {contactInfo && (
+        <Descriptions
+          title="Contact Info"
+          bordered
+          column={1}
+          style={{ maxWidth: "600px" }}
+        >
+          <Descriptions.Item label="Manager Name">
+            {contactInfo.ManagerName}
+          </Descriptions.Item>
+          <Descriptions.Item label="Phone">
+            <a href={contactInfo.Phone}>{contactInfo.Phone}</a>
+          </Descriptions.Item>
+          <Descriptions.Item label="Fax">
+            <a href={contactInfo.Fax}>{contactInfo.Fax}</a>
+          </Descriptions.Item>
+          <Descriptions.Item label="Address">
+            {`${contactInfo.Street}, ${contactInfo.City}, ${contactInfo.Province},  ${contactInfo.PostalCode}, ${contactInfo.Country} `}
+          </Descriptions.Item>
+        </Descriptions>
+      )}
+    </div>
+  );
+};
 
-export default ContactPage
+export default ContactPage;

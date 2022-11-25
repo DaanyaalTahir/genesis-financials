@@ -42,6 +42,19 @@ export const etransfer = async (values) => {
   }
 };
 
+export const getBalance = async (values) => {
+  const body = { ...values };
+  try {
+    const response = await Axios.post(
+      "http://localhost:9000/users/account_balance",
+      body
+    );
+    return response;
+  } catch (err) {
+    return false;
+  }
+};
+
 export const contact = async (values) => {
   const body = { ...values };
   try {
@@ -55,4 +68,3 @@ export const contact = async (values) => {
     return false;
   }
 };
-

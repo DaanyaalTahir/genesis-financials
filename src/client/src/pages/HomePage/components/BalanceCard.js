@@ -2,16 +2,24 @@ import React, { useState, useEffect } from "react";
 import { Col, Row, Card, Typography } from "antd";
 import { useSelector } from "react-redux";
 import { numberAsCurrency } from "../../../helpers/numberFormatters";
+import { getBalance } from "../../../api";
 
 const { Title } = Typography;
 
 function BalanceCard({ selectedAccount }) {
-  const [account, setAccount] = useState("0.00");
-  const accounts = useSelector((state) => state.accounts.userAccounts);
+  const [account, setAccount] = useState({
+    Amount: "0.00",
+    Type: "",
+    AccountNo: "",
+    ExpiryDate: "",
+  });
 
   useEffect(() => {
-    for (const account of accounts)
-      if (account.CardNo == selectedAccount) setAccount(account);
+    async function getData() {
+      let res = await getBalance({ cardNo: selectedAccount });
+      setAccount(res.data[0]);
+    }
+    getData();
   }, [selectedAccount]);
 
   return (
