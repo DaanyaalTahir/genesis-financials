@@ -5,6 +5,7 @@ import { ColumnsType } from 'antd/es/table';
 import { filterData } from '../../../helpers/filterData';
 import _ from "lodash";
 
+
 function StatementTable({ selectedAccount }) {
     const [statement, setStatement] = useState(undefined);
     const [filteredInfo, setFilteredInfo] = useState({});
