@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Card } from "antd";
 import AccountSelect from "../../components/AccountSelect";
-//import AverageSpending from "./Components/AverageSpending";
+import AverageSpending from "./Components/AverageSpending";
 import HighestSpentLocation from "./Components/HighestSpentLocation";
 import HighestTransactionCard from "./Components/HighestTransactionCard";
 import TopThreeCategoriesCard from "./Components/TopThreeCategoriesCard";
@@ -29,7 +29,7 @@ function InsightsPage() {
                 <HighestTransactionCard selectedAccount={selectedAccount} />
               </Col>
               <Col span={8}>
-                <HighestTransactionCard selectedAccount={selectedAccount} />
+                <AverageSpending selectedAccount={selectedAccount} />
               </Col>
               <Col span={24}>
                 <TopThreeCategoriesCard selectedAccount={selectedAccount} />
