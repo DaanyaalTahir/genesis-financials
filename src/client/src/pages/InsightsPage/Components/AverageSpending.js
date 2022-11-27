@@ -32,12 +32,12 @@ function AverageSpending({ selectedAccount }) {
                 {avgMonthlySpent && avgYearlySpent && (
                     <Row style={{ textAlign: "center" }}>
                         <Col span={12}>
-                            <Title level={1} style={{ color: "#3BB143" }}>
+                            <Title level={2} style={{ color: "#3BB143" }}>
                                 {numberAsCurrency(avgMonthlySpent[0].Amount)}
                             </Title>
                         </Col>
                         <Col span={12}>
-                            <Title level={1} style={{ color: "#db0c26" }}>
+                            <Title level={2} style={{ color: "#db0c26" }}>
                                 {numberAsCurrency(avgYearlySpent[0].Amount)}
                             </Title>
                         </Col>

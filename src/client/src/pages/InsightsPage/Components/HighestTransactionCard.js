@@ -22,7 +22,7 @@ function HighestTransactionCard({ selectedAccount }) {
                 {highestTransaction && (
                     <Row style={{ textAlign: "center" }}>
                         <Col span={24}>
-                            <Title level={1} style={{ color: "#db0c26" }}>
+                            <Title level={2} style={{ color: "#db0c26" }}>
                                 {numberAsCurrency(highestTransaction.maxAmount)}
                             </Title>
                         </Col>

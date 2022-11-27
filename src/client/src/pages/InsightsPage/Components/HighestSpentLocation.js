@@ -22,7 +22,7 @@ function HighestSpentLocation({ selectedAccount }) {
                 {location && (
                     <Row style={{ textAlign: "center" }}>
                         <Col span={24}>
-                            <Title level={1} style={{ color: "#1890ff" }}>
+                            <Title level={2} style={{ color: "#1890ff" }}>
                                 {location.Establishment}
                             </Title>
                         </Col>
