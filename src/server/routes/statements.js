@@ -12,7 +12,7 @@ router.post("/get_statementInfo", (req, res) => {
         [cardNo],
         (err, result) => {
             if (err) {
-                res.send({ err: err });
+                res.send({err: err});
             }
 
             if (result.length != 0) {
@@ -20,7 +20,7 @@ router.post("/get_statementInfo", (req, res) => {
                 console.log("Working");
             } else {
                 console.log("Failed");
-                res.status(401).send({ message: "Failed" });
+                res.status(401).send({message: "Failed"});
             }
         }
     );

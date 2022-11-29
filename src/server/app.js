@@ -12,6 +12,7 @@ var transactionsRouter = require("./routes/transactions");
 var statementsRouter = require("./routes/statements");
 var insightsRouter = require("./routes/insights");
 var contactRouter = require("./routes/contact");
+var loansRouter = require("./routes/loans");
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use("/statements", statementsRouter);
 app.use("/insights", insightsRouter);
 
 app.use("/contact", contactRouter);
+app.use("/loans", loansRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
