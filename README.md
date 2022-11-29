@@ -33,14 +33,14 @@ No actions needed. The backend server will connect to the database automatically
 4. Use any of the following credentials to sign-in:
 </br>
 
-**Note**: the account ```kahafeez3``` has curated data that highlights all functionalities of our application. Data for other accounts may be inconsistent.
-
 | Username      | Password |
 | ----------- | ----------- |
 | kahafeez3      | 4qnNQDZTwd |
 | hcapineer6   | sp2gkqmaBMCz |
 | mmichelini   | ZpS4mJLWQSJD |
 </br>
+
+**Note**: the account ```kahafeez3``` has curated data that highlights all functionalities of our application. Data for other accounts may be inconsistent.
 
 The frontend will be running on port 3000 and the backend will be running on port 9000. 
 
