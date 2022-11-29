@@ -30,7 +30,7 @@ No actions needed. The backend server will connect to the database automatically
 1. Using the terminal, 'cd' into 'src/client' and run `npm start` to start the frontend
 2. Using the terminal, 'cd' into 'src/server' and run `npm start` to start the backend 
 3. Open [http://localhost:3000](http://localhost:3000)
-4. Use the following credentials to signin:
+4. Use the following credentials to sign-in:
 </br>
 
 | Username      | Password |
