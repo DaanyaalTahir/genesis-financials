@@ -1,5 +1,7 @@
-<img src="/media-assets/logo-dark.png" alt="drawing" height="100"/>
 
+<p align="center">
+  <img src="/media-assets/logo-dark.png" alt="drawing" height="100"/>
+</p>
 
 ## Project Setup (Windows)
 
