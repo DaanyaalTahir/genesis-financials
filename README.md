@@ -36,7 +36,7 @@ The frontend will be running on port 3000 and the backend will be running on por
 
 If using a locally hosted database, you can select any account in the ```customer``` table, and user their Username and Password to log in.
 
-If using the database hosted on the VPS, you can use any account credential found in [the mock data SQL generation file](database/genesis_financial_mock_data.sql), or can use one of these sample accounts:
+If using the database hosted on the VPS, you can use any customer credentials found in [the mock data SQL generation file](database/genesis_financial_mock_data.sql), or can use one of these sample accounts:
 | Username      | Password |
 | ----------- | ----------- |
 | kahafeez3      | 4qnNQDZTwd       |
