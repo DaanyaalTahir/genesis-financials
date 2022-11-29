@@ -7,11 +7,11 @@ router.post("/get_top_three_categories", (req, res) => {
 
     db.query(
         `SELECT T.Category, SUM(Amount) AS Amount
-  FROM transaction T
-  WHERE T.CardNo=?
-  GROUP BY T.Category
-  ORDER BY Amount DESC
-  LIMIT 3`,
+        FROM transaction T
+        WHERE T.CardNo=?
+        GROUP BY T.Category
+        ORDER BY Amount DESC
+        LIMIT 3`,
         [cardNo, cardNo],
         (err, result) => {
             if (err) {
