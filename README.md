@@ -16,11 +16,12 @@
 #### Using a local MySQL Installation
 
 1. Install [MySQL](https://dev.mysql.com/downloads/installer/) (Make sure to remember your root password!)
-2. In the MySQL query console, run the SQL database initialization code located in [database/](database/) in this order:
+2. Install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) (Optional)
+3. In a MySQL query console, or MySQL Workbench, run the SQL database initialization code located in [database/](database/) in this order:
 - [genesis_financial_init_database.sql](database/genesis_financial_init_database.sql)
 - [genesis_financial_mock_data.sql](database/genesis_financial_mock_data.sql)
-3. In the locally cloned genesis-financials repository, head to [src/server/database.js](src/server/database.js)
-4. Modify the connection variables (user, password, host, and port) to reflect your MySQL installation
+4. In the locally cloned genesis-financials repository, head to [src/server/database.js](src/server/database.js)
+5. Modify the connection variables (user, password, host, and port) to reflect your MySQL installation
 
 #### Using the Existing VPS
 
@@ -35,7 +36,7 @@ The frontend will be running on port 3000 and the backend will be running on por
 
 If using a locally hosted database, you can select any account in the ```customer``` table, and user their Username and Password to log in.
 
-If using the database hosted on the VPS, you will need credentials to log in. Here are some sample accounts:
+If using the database hosted on the VPS, you can use any account credential found in [the mock data SQL generation file](database/genesis_financial_mock_data.sql), or can use one of these sample accounts:
 | Username      | Password |
 | ----------- | ----------- |
 | kahafeez3      | 4qnNQDZTwd       |
